@@ -30,6 +30,7 @@ TEST(VectorContainerTestSet, vectorPrintTest) {
     test_container->add_element(test);
     test_container->print();
     std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_EQ(test_container->size(), 1);
     EXPECT_EQ(output, str);
 }
 
