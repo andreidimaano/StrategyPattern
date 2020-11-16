@@ -19,8 +19,19 @@ TEST(ClassVectorContainerTest, vectorDefaultConstructor) {
 
 
 //Print
+TEST(VectorContainerTestSet, vectorPrintTest) {
+    // Setup the elements under test
+    Op* left = new Op(10);
+	Op* right = new Op(5);
+	Mult* test = new Mult(left, right);
+	std::string str = "10.000000 * 5.000000";
+    VectorContainer* test_container = new VectorContainer();
 
-//Size
+    test_container->add_element(test);
+    test_container->print();
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, str);
+}
 
 //at
 TEST(VectorContainerTestSet, vectorAtOpTest) {
@@ -55,3 +66,35 @@ TEST(VectorContainerTestSet, vectorAtAddTest) {
 
 
 //add element
+TEST(VectorContainerTestSet, vectorAddTest) {
+    // Setup the elements under test
+    Base* seven = new Op(7);
+    Base* three = new Op(3);
+    Base* sum = new Add(seven, three);
+
+    VectorContainer* test_container = new VectorContainer();
+    test_container->add_element(sum);
+
+    EXPECT_EQ(test_container->size(), 1);
+}
+
+TEST(VectorContainerTestSet, vectorAddMultipleTest) {
+    // Setup the elements under test
+    Base* seven = new Op(7);
+    Base* three = new Op(3);
+    Base* sum = new Add(seven, three);
+
+    VectorContainer* test_container = new VectorContainer();
+
+    test_container->add_element(sum);
+    test_container->add_element(sum);
+    test_container->add_element(sum);
+    test_container->add_element(sum);
+    test_container->add_element(sum);
+    EXPECT_EQ(test_container->size(), 5);
+}
+
+TEST(VectorContainerTestSet, vectorAddNoneTest) {
+    VectorContainer* test_container = new VectorContainer();
+    EXPECT_EQ(test_container->size(), 0);
+}
