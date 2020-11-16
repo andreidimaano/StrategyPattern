@@ -5,27 +5,15 @@ ADD_SUBDIRECTORY(googletest)
 
 SET(CMAKE_CXX_STANDARD 11)
 
-
-ADD_EXECUTABLE(compositetest
-    composite/tests/unit_test.cpp	
-	composite/src/sub.cpp
+ADD_EXECUTABLE(test
+    tests/unit_tests.cpp
+    composite/src/sub.cpp
     composite/src/rand.cpp
     composite/src/op.cpp
     composite/src/add.cpp
     composite/src/mult.cpp
-	composite/src/div.cpp
-	composite/src/pow.cpp
-)
-
-ADD_EXECUTABLE(strategytest
-    tests/unit_test.cpp
-	composite/src/sub.cpp
-    composite/src/rand.cpp
-    composite/src/op.cpp
-    composite/src/add.cpp
-    composite/src/mult.cpp
-	composite/src/div.cpp
-	composite/src/pow.cpp
+    composite/src/div.cpp
+    composite/src/pow.cpp
 )
 
 
