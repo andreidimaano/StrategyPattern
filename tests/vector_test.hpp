@@ -16,7 +16,7 @@ TEST(ClassVectorContainerTest, vectorDefaultConstructor) {
 }
 
 //Swap
-TEST(VectorContainerTestSet, vectorPrintTest) {
+TEST(VectorContainerTestSet, vectorSwapTest) {
     // Setup the elements under test
     Op* left = new Op(10);
 	Op* right = new Op(5);
@@ -29,7 +29,7 @@ TEST(VectorContainerTestSet, vectorPrintTest) {
     test_container->swap(0,1);
 
     EXPECT_EQ(test_container->at(0)->evaluate(), 5);
-    EXPECT_EQ(test_container->at(0)->evaluate(), 10);
+    EXPECT_EQ(test_container->at(1)->evaluate(), 10);
 }
 
 //Print
@@ -41,12 +41,13 @@ TEST(VectorContainerTestSet, vectorPrintTest) {
     std::string str = "10.000000 * 5.000000";
     VectorContainer* test_container = new VectorContainer();
 
-    test_container->add_element(test);
+    test_container->add_element(test); 
+    testing::internal::CaptureStdout();
     test_container->print();
-    //std::string output = testing::internal::GetCapturedStdout();
+    std::string output = testing::internal::GetCapturedStdout();
     //causes seg fault^
-    EXPECT_EQ(test_container->size(), 1);
-    // EXPECT_EQ(output, str);
+    //EXPECT_EQ(test_container->size(), 1);
+    EXPECT_EQ(output, str);
 }
 
 //at
