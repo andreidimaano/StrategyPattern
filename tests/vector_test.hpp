@@ -16,7 +16,21 @@ TEST(ClassVectorContainerTest, vectorDefaultConstructor) {
 }
 
 //Swap
+TEST(VectorContainerTestSet, vectorPrintTest) {
+    // Setup the elements under test
+    Op* left = new Op(10);
+	Op* right = new Op(5);
+    VectorContainer* test_container = new VectorContainer();
 
+    test_container->add_element(left);
+    test_container->add_element(right);
+    ASSERT_EQ(test_container->size(), 2);
+
+    test_container->swap(0,1);
+
+    EXPECT_EQ(test_container->at(0)->evaluate(), 5);
+    EXPECT_EQ(test_container->at(0)->evaluate(), 10);
+}
 
 //Print
 TEST(VectorContainerTestSet, vectorPrintTest) {
@@ -48,6 +62,7 @@ TEST(VectorContainerTestSet, vectorAtOpTest) {
     ASSERT_EQ(test_container->size(), 1);
     EXPECT_EQ(test_container->at(0)->evaluate(), 7);
 }
+
 TEST(VectorContainerTestSet, vectorAtAddTest) {
     // Setup the elements under test
     Base* seven = new Op(7);
