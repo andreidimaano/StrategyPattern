@@ -9,6 +9,7 @@
 #include "../composite/header/sub.hpp"
 #include "../VectorContainer.hpp"
 #include "../selectionsort.hpp"
+#include "../sort.hpp"
 #include <iostream>
 
 
@@ -36,6 +37,7 @@ TEST(SortTestSet, SelectionSortTest) {
     EXPECT_EQ(container->at(1)->evaluate(), 5);
     EXPECT_EQ(container->at(2)->evaluate(), 4);
 
+    
     container->set_sort_function(new SelectionSort());
     container->sort();
 
@@ -68,7 +70,7 @@ TEST(SortTestSet, NullSelectionSortTest) {
     EXPECT_EQ(container->at(1)->evaluate(), 5);
     EXPECT_EQ(container->at(2)->evaluate(), 4);
 
-    // container->set_sort_function(new SelectionSort());
+    //container->set_sort_function(new SelectionSort());
     //container->sort();
 
     try {

@@ -28,7 +28,11 @@ class VectorContainer: public Container{
         }
         // calls on the previously set sorting-algorithm. Checks if sort_function is not null, throw exception if otherwise
         virtual void sort(){
-            this->sort_function->sort(this);
+	    if(!(this->sort_function)) {
+                throw "sort function is not specified";
+	    } else {
+		this->sort_function->sort(this);
+	    }
         }
 
         /* Essentially the only functions needed to sort */

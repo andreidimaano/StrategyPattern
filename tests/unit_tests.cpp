@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "vector_tests.hpp"
-#include "list_tests.hpp"
+//#include "list_tests.hpp"
 #include "sort_tests.hpp"
 
 int main(int argc, char **argv) {

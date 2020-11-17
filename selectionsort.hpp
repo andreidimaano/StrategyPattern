@@ -2,13 +2,15 @@
 #define __SELECTION__SORT_HPP__
 
 #include "container.hpp"
+#include "sort.hpp"
 
 class Container;
+class Sort;
 
 class SelectionSort: public Sort {
     public:
         /* Constructors */
-        SelectionSort() : Sort() {};
+        SelectionSort(): Sort() {}
 
         /* Pure Virtual Functions */
         virtual void sort(Container* container) {
