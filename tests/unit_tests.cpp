@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 
+#include "list_test.hpp"
 #include "vector_test.hpp"
 
 int main(int argc, char **argv) {
